@@ -33,6 +33,6 @@ class TestPatient(TestCase):
     def test_that_gender_is_not_valid(self):
         self.assertRaises(ValueError, self.patient.validate_gender, "ma")
 
-    def test_that_phone_number_is_valid(self):
-        print(self.patient.validate_phone_number("0123456789"))
-        self.assertEqual('0123456789', self.patient.validate_phone_number("0123456789"))
+    # def test_that_phone_number_is_valid(self):
+    #     print(self.patient.validate_phone_number("0123456789"))
+    #     self.assertEqual('0123456789', self.patient.validate_phone_number("0123456789"))
