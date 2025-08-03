@@ -9,6 +9,7 @@ class Appointment:
         self.doctor_id = doctor_id
         self.location = location
 
+    
     def appointment_date(self):
         self.date_time = self.datetime.strftime = f"%m %d %Y %I:%M %p"
         return self.date_time

@@ -8,7 +8,6 @@ class Admin:
     def __init__(self):
         self.__doctors = list()
         self.__patients = list()
-        self.__medical_history = list()
         self.__appointments = list()
         self.__login_details = [{'username': "admin", 'password': "admin"}]
 
@@ -51,8 +50,8 @@ class Admin:
         if len(self.__doctors) == 0:
             return 'No doctors found'
 
-    def register_a_patient(self, patient_id: int,first_name: str, last_name: str, gender, dob, phone: str) -> None:
-        self.__patients.append(Patient(patient_id, first_name, last_name, gender, dob, phone))
+    def register_a_patient(self,user_name: str, pass_word: str, patient_id: int,first_name: str, last_name: str, gender, dob, phone: str) -> None:
+        self.__patients.append(Patient(user_name, pass_word, patient_id, first_name, last_name, gender, dob, phone))
 
     def delete_patient_from_list(self, id_number: int, first_name: str) -> None:
         isFound = False
@@ -67,18 +66,13 @@ class Admin:
         for patient, history, appointment in zip_longest(self.__patients, self.__medical_history, self.__appointments, fillvalue=''):
             if patient.patient_id == patient_id and patient.first_name.lower() == first_name.lower():
                 return f'{str(patient)}\n\n{str(appointment)}\n'
+
             if history.patient_id == patient_id:
                 return f'{str(history)}'
+
             if appointment.patient_id == patient_id:
                 return f'{str(appointment)}'
 
-    def create_medical_history(self, record_id: int, past_illness: str, present_illness: str, allergies: str, medications: str) -> None:
-        self.__medical_history.append(MedicalHistory(record_id, past_illness, present_illness, allergies, medications))
-
-    def update_medical_history(self,record_id: int, past_illness: str, present_illness: str, allergies: str, medications: str ) -> None:
-        for record in self.__medical_history:
-            if record.record_id == record_id:
-                record.medical_history = MedicalHistory(record_id, past_illness, present_illness, allergies, medications)
 
     def find_patient(self, patient_id: int) -> Patient:
         if patient_id in self.__patients:

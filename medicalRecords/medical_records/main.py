@@ -21,6 +21,7 @@ medical_menu = '''
     9 -> Book appointment
     10 -> Quit
 '''
+
 while True:
     print(medical_menu)
     choice = input('Enter your choice: ')
