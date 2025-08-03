@@ -14,9 +14,10 @@ class Admin:
 
     @staticmethod
     def login(username, password):
-        if username == self.user_name and password == self.pass_word and password != '' and username != '':
-            return True
-        raise ValueError("Invalid username or password")
+        if Admin.user_name != username and Admin.pass_word != password:
+            return False
+        return True
+
 
     @staticmethod
     def logout():
@@ -94,12 +95,11 @@ class Admin:
         self.patient.__appointments.append(Appointment(patient_id, date, time, status, reason, doctors_id, location))
 
     def view_appointment(self, patient_id):
+        if not patient_id in self.__appointments:
+            raise ValueError("No appointment found for patient")
         for appointment in self.__appointments:
             if appointment.patient_id == patient_id:
                 return f"{str(appointment)}"
-        if patient_id in self.__appointments:
-            return "No appointment found for patient"
-
 
     def get_patient_list(self) -> int:
         return len(self.__patients)

@@ -1,7 +1,8 @@
-from random import choice
+from medical_records.doctor import Doctor
 
 from medical_records import medical_record
 admin = medical_record.Admin()
+
 
 login_username = input("Enter your login username: ")
 login_password = input("Enter your login password: ")
@@ -27,15 +28,30 @@ while True:
     choice = input('Enter your choice: ')
     match choice:
         case '1':
-            log_user = input("Enter new login username: ")
-            log_password = input("Enter new login password: ")
-            admin.set_login(log_user, log_password)
-            doctors_id = int(input('Enter doctor id: '))
-            first_name = input('Enter first name: ')
-            last_name = input('Enter last name: ')
-            speciality = input('Enter speciality: ')
-            admin.add_doctor_to_list(doctors_id, first_name, last_name, speciality)
-            print('Doctor Added successfully!...')
+            try:
+                log_username = input("Enter new login username: ")
+                Doctor.validate_username(log_username)
+
+                log_password = input("Enter new login password: ")
+                Doctor.validate_password(log_password)
+
+                doctors_id = int(input('Enter doctor id: '))
+                Doctor.validate_doctor_id(doctors_id)
+
+                first_name = input('Enter first name: ')
+                Doctor.validate_first_name(first_name)
+
+                last_name = input('Enter last name: ')
+                Doctor.validate_last_name(last_name)
+
+                speciality = input('Enter speciality: ')
+                Doctor.validate_speciality(speciality)
+
+                admin.add_doctor_to_list(log_username, log_password, doctors_id, first_name, last_name, speciality)
+                print('Doctor Added successfully!...')
+            except ValueError:
+                print("Invalid input, please try again")
+
         case '2':
             doctors_id = int(input('Enter doctor id: '))
             first_name = input('Enter first name: ')
