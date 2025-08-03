@@ -1,30 +1,30 @@
 from enum import Enum
 
-
 class Specialty(Enum):
-    ALLERGIST = 'Allergist',
-    IMMUNOLOGIST = 'Immunologists',
-    ANESTHESIOLOGIST = 'Anesthesiologist',
-    CARDIOLOGY = 'Cardiologist',
-    DERMATOLOGIST = 'Dermatologist',
-    ENDOCRINOLOGIST = 'Endocrinologist',
-    GASTROENTEROLOGIST = 'Gastroenterologist',
-    NEUROLOGIST = 'Neurologist',
-    NEPHROLOGIST = 'Nephrologist',
-    GYNECOLOGIST = 'Gynecologist',
-    ONCOLOGIST = 'Oncologist',
-    OPHTHALMOLOGIST = 'Ophthalmologist',
-    PATHOLOGIST = 'Pathologist',
-    OTOLARYNGOLOGIST = 'Otolaryngologist',
-    PHYSIATRIST = 'Physiatrist',
-    PSYCHIATRIST = 'Psychiatrist',
-    PULMONOLOGIST = 'Pulmonologist',
-    RADIOLOGIST = 'Radiologist',
-    UROLOGIST = 'Urologist',
-    GENERALSURGEON = 'General Surgeon',
-    RHEUMATOLOGIST = 'Rheumatologist',
-    PODIATRIST = 'Podiatrist',
-    PLASTICSURGEON = 'Plastic Surgeon',
-    MEDICALGENETICIST = 'Medical Geneticist',
-    HEMATOLOGIST = 'Hematologist',
-    GERIATRICSPECIALIST = 'Geriatrics Specialist',
+    ALLERGIST = 'Allergist'
+    IMMUNOLOGIST = 'Immunologists'
+    ANESTHESIOLOGIST = 'Anesthesiologist'
+    CARDIOLOGY = 'Cardiologist'
+    DERMATOLOGIST = 'Dermatologist'
+    ENDOCRINOLOGIST = 'Endocrinologist'
+    GASTROENTEROLOGIST = 'Gastroenterologist'
+    NEUROLOGIST = 'Neurologist'
+    NEPHROLOGIST = 'Nephrologist'
+    GYNECOLOGIST = 'Gynecologist'
+    ONCOLOGIST = 'Oncologist'
+    OPHTHALMOLOGIST = 'Ophthalmologist'
+    PATHOLOGIST = 'Pathologist'
+    OTOLARYNGOLOGIST = 'Otolaryngologist'
+    PHYSIATRIST = 'Physiatrist'
+    PSYCHIATRIST = 'Psychiatrist'
+    PULMONOLOGIST = 'Pulmonologist'
+    RADIOLOGIST = 'Radiologist'
+    UROLOGIST = 'Urologist'
+    GENERALSURGEON = 'General Surgeon'
+    RHEUMATOLOGIST = 'Rheumatologist'
+    PODIATRIST = 'Podiatrist'
+    PLASTICSURGEON = 'Plastic Surgeon'
+    MEDICALGENETICIST = 'Medical Geneticist'
+    HEMATOLOGIST = 'Hematologist'
+    GERIATRICSPECIALIST = 'Geriatrics Specialist'
+    NEUROSURGEON = 'Neuro-surgeon'

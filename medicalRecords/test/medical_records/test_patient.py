@@ -29,6 +29,7 @@ class TestPatient(TestCase):
     def test_that_gender_is_valid(self):
         self.patient.validate_gender("male")
         self.assertEqual('Male', self.patient.validate_gender("male"))
+        self.assertEqual('Female', self.patient.validate_gender("female"))
 
     def test_that_gender_is_not_valid(self):
         self.assertRaises(ValueError, self.patient.validate_gender, "ma")

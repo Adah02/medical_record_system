@@ -66,8 +66,10 @@ class Admin:
         for patient, history, appointment in zip_longest(self.__patients, self.__medical_history, self.__appointments, fillvalue=''):
             if patient.patient_id == patient_id and patient.first_name.lower() == first_name.lower():
                 return f'{str(patient)}\n\n{str(appointment)}\n'
+
             if history.patient_id == patient_id:
                 return f'{str(history)}'
+
             if appointment.patient_id == patient_id:
                 return f'{str(appointment)}'
 
