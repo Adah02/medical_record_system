@@ -6,27 +6,39 @@ from medical_records.appointment import Appointment
 
 class Admin:
     def __init__(self):
+        self.user_name = "admin"
+        self.pass_word = "admin"
         self.__doctors = list()
         self.__patients = list()
         self.__appointments = list()
-        self.__login_details = [{'username': "admin", 'password': "admin"}]
 
-    def set_login(self, username, password):
-        self.__login_details.append({'username': username, 'password': password})
+    @staticmethod
+    def login(username, password):
+        if username == self.user_name and password == self.pass_word and password != '' and username != '':
+            return True
+        raise ValueError("Invalid username or password")
 
-    def login(self, username, password):
-        is_found = False
-        for login in self.__login_details:
-            if username in login['username'] and password in login['password']:
-                return True;  is_found = True
-        if not is_found:
-            raise ValueError('Login failed')
+    @staticmethod
+    def logout():
+        return False
+
+    @staticmethod
+    def validate_login_username(username):
+        if username == '' or len(username) > 15:
+            raise ValueError("Username cannot be empty or greater than 15 characters")
+        user_name = username
+
+    @staticmethod
+    def validate_login_password(password):
+        if password == '' or len(password) > 15:
+            raise ValueError("Password cannot be empty or greater than 15 characters")
+        pass_word = password
 
     def get_doctors_list(self):
         return len(self.__doctors)
 
-    def add_doctor_to_list(self, id_number: int, first_name: str, last_name: str, speciality: str) -> None:
-        self.__doctors.append(Doctor(id_number, first_name, last_name, speciality))
+    def add_doctor_to_list(self,username: str, password: str, id_number: int, first_name: str, last_name: str, speciality: str) -> None:
+        self.__doctors.append(Doctor(username, password, id_number, first_name, last_name, speciality))
 
     def delete_doctor_from_list(self, id_number: int, name: str) -> none:
         isFound = False
