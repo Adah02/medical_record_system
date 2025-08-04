@@ -12,27 +12,47 @@ class Admin:
         self.__patients = list()
         self.__appointments = list()
 
-    @staticmethod
-    def login(username, password):
-        if user_name != username and pass_word != password:
-            return False
-        return True
 
-    @staticmethod
-    def logout():
-        return False
+    def admin_login(self, username, password):
+        if self.user_name == username and self.pass_word == password:
+            return True
+        raise ValueError('Invalid username or password')
+
 
     @staticmethod
     def validate_login_username(username):
         if username == '' or len(username) > 15:
             raise ValueError("Username cannot be empty or greater than 15 characters")
-        user_name = username
+        return username
 
     @staticmethod
-    def validate_login_password(password):
-        if password == '' or len(password) > 15:
+    def validate_login_password(pass_key):
+        if pass_key == '' or len(pass_key) > 15:
             raise ValueError("Password cannot be empty or greater than 15 characters")
-        pass_word = password
+        return pass_key
+
+    def set_login(self, username, password):
+        self.validate_login_username(username)
+        self.validate_login_password(password)
+        self.user_name = username
+        self.pass_word = password
+
+
+    @staticmethod
+    def logout():
+        return False
+
+    def doctor_login(self, user_name, pass_key):
+        for doctor in self.__doctors:
+            if doctor.username == user_name and doctor.password == pass_key:
+                return True
+        raise ValueError('Invalid username or password')
+
+    def patient_login(self, username, pass_key):
+        for patient in self.__patients:
+            if patient.username == username and patient.password == pass_key:
+                return True
+        raise ValueError('Invalid username or password')
 
     def get_doctors_list(self):
         return len(self.__doctors)
@@ -44,8 +64,7 @@ class Admin:
         isFound = False
         for doctor in self.__doctors:
             if doctor.doctor_id == id_number and doctor.first_name == name:
-                self.__doctors.remove(doctor)
-                isFound = True
+                self.__doctors.remove(doctor); isFound = True
         if not isFound:
             raise Exception("Doctor not found")
 
@@ -69,22 +88,21 @@ class Admin:
         isFound = False
         for patient in self.__patients:
             if patient.patient_id == id_number and patient.first_name == first_name:
-                self.__patients.remove(patient)
-                isFound = True
+                self.__patients.remove(patient); isFound = True
         if not isFound:
             raise ValueError('Patient not found')
 
     def view_patient_record(self, patient_id: int, first_name: str) -> str:
         for patient, history, appointment in zip_longest(self.__patients, self.__medical_history, self.__appointments, fillvalue=''):
             if patient.patient_id == patient_id and patient.first_name.lower() == first_name.lower():
-                return f'{str(patient)}\n\n{str(appointment)}\n'
-
+                print(f'{str(patient)}\n')
+                continue
             if history.patient_id == patient_id:
-                return f'{str(history)}'
-
+                print(f'{str(history)}\n')
+                continue
             if appointment.patient_id == patient_id:
-                return f'{str(appointment)}'
-
+                print(f'{str(appointment)}')
+                continue
 
     def find_patient(self, patient_id: int) -> Patient:
         if patient_id in self.__patients:

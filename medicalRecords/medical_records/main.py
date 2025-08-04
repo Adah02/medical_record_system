@@ -1,8 +1,8 @@
-from medical_records.medical_record import Admin
+from medical_records import medical_record
 from medical_records.doctor import Doctor
 from medical_records import medical_record
 
-admin = Admin()
+admin = medical_record.Admin()
 
 users = '''
     Welcome to Specialist Hospital
@@ -20,7 +20,6 @@ while True:
             admin.login(login_username, login_password)
 
             medical_menu = '''
-    
             press:-
             1 -> Add doctor
             2 -> Delete record
@@ -123,7 +122,8 @@ while True:
         case '2':
             doc_username = input("Enter your login username: ")
             doc_password = input("Enter your login password: ")
-            admin.login(doc_username, doc_password)
+            admin.doctor_login(user_name, pass_key)
+
             doctors_menu = '''
                     Press:-
                     1 -> view personal information
