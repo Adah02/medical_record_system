@@ -14,10 +14,9 @@ class Admin:
 
     @staticmethod
     def login(username, password):
-        if Admin.user_name != username and Admin.pass_word != password:
+        if user_name != username and pass_word != password:
             return False
         return True
-
 
     @staticmethod
     def logout():
