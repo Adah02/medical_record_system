@@ -2,7 +2,7 @@ from medical_records import medical_record
 from medical_records.doctor import Doctor
 from medical_records import medical_record
 
-admin = medical_record.Admin()
+admin = Admin()
 
 users = '''
     Welcome to Specialist Hospital

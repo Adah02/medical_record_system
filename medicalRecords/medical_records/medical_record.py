@@ -12,12 +12,10 @@ class Admin:
         self.__patients = list()
         self.__appointments = list()
 
-
     def admin_login(self, username, password):
         if self.user_name == username and self.pass_word == password:
             return True
         raise ValueError('Invalid username or password')
-
 
     @staticmethod
     def validate_login_username(username):
@@ -36,7 +34,6 @@ class Admin:
         self.validate_login_password(password)
         self.user_name = username
         self.pass_word = password
-
 
     @staticmethod
     def logout():
@@ -77,7 +74,8 @@ class Admin:
 
     def view_doctors(self):
         for doctor in self.__doctors:
-            return f"{str(doctor)}"
+            print(f"{str(doctor)}")
+            continue
         if len(self.__doctors) == 0:
             return 'No doctors found'
 
