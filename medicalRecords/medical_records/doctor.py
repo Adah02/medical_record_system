@@ -1,4 +1,3 @@
-from medical_records.main import user_name
 from medical_records.specialty import Specialty
 
 class Doctor:

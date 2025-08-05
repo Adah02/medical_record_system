@@ -2,7 +2,7 @@ from medical_records.doctor import Doctor
 from unittest import TestCase
 
 class TestDoctor(TestCase):
-    doctor = Doctor(1, 'Emma', 'Adah', 'Cardiologist')
+    doctor = Doctor('adah','emma07',1, 'Emma', 'Adah', 'Cardiologist')
 
     def test_that_doctor_id_is_valid(self):
         self.assertEqual(2, self.doctor.validate_doctor_id(2))
