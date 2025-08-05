@@ -1,4 +1,4 @@
-
+from datetime import datetime
 
 class Appointment:
     def __init__(self,patient_id, date: str, time: str, status: str, reason: str, doctor_id, location: str ) -> None:
@@ -10,8 +10,9 @@ class Appointment:
         self.__location = location
 
     
-    def appointment_date(self):
+    def appointment_date(self, date: str) -> str:
         self.date_time = self.datetime.strftime = f"%m %d %Y %I:%M %p"
+
         return self.date_time
 
     def get_patient_id(self):
