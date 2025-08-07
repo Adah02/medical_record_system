@@ -20,7 +20,15 @@ class MedicalHistory:
     def delete_allergies(self, allergy: str):
         if allergy not in self.allergies:
             raise ValueError("Allergy not found")
-        self.allergies.pop(allergy)
+        self.allergies.remove(allergy)
+
+    def add_medications(self, medication: str):
+        self.medications.append(medication)
+
+    def delete_medications(self, medication: str):
+        if medication not in self.medications:
+            raise ValueError("Medication not found")
+        self.medications.remove(medication)
 
     def __str__(self) -> str:
         return (f'Past illnesses: {self.past_illness}\nCurrent Illnesses: {self.present_illness}'
