@@ -5,8 +5,8 @@ class MedicalHistory:
         self.patient_id = self.validate_patient_id(id)
         self.past_illness = past_illness
         self.present_illness = current_illness
-        self.allergies = allergies
-        self.medications = medication
+        self.allergies = []
+        self.medications = []
 
     @staticmethod
     def validate_patient_id(patient_id: int):
@@ -14,26 +14,14 @@ class MedicalHistory:
             raise ValueError('Patient ID must be greater than 0')
         return patient_id
 
-    def add_allergies(self, allergies: str):
-        self.allergies += f',{allergies}'
+    def add_allergies(self, allergy: str):
+        self.allergies.append(allergy)
 
-    def delete_allergies(self, current_allergy: str):
-        if current_allergy not in self.allergies:
-            raise ValueError("All allergies must have been removed")
-        self.allergies.replace(allergy, "")
-
-    def get_past_illness(self) -> str:
-        return self.past_illness
-
-    def get_present_illness(self) -> str:
-        return self.present_illness
-
-    def get_allergies(self) -> str:
-        return self.allergies
-
-    def get_medication(self) -> str:
-        return self.medications
+    def delete_allergies(self, allergy: str):
+        if allergy not in self.allergies:
+            raise ValueError("Allergy not found")
+        self.allergies.pop(allergy)
 
     def __str__(self) -> str:
-        return (f'Past illnesses: {get_past_illness()}\nCurrent Illnesses: {get_present_illness()}'
-                f'Allergies: {get_allergies()}\nMedications: {get_medication()}')
+        return (f'Past illnesses: {self.past_illness}\nCurrent Illnesses: {self.present_illness}'
+                f'Allergies: {self.allergies}\nMedications: {self.medications}')

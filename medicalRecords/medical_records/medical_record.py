@@ -66,7 +66,7 @@ class Admin:
             raise Exception("Doctor not found")
 
     def view_doctors_detail_in_list(self, id_number: int, name: str) -> str:
-        if len(self.__doctors) == 0:
+        if id_number and name in self.__doctors:
             raise Exception("Doctor not found")
         for doctor in self.__doctors:
             if doctor.doctor_id == id_number and doctor.first_name.lower() == name.lower():

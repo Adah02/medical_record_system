@@ -107,7 +107,6 @@ while True:
                     case '9':
                         patient_id = int(input('Enter patient id: '))
                         found_id = admin.find_patient(patient_id)
-
                         if found_id:
                             date_time = input('Enter date and time in (DD,MM,YYYY hh:mm): ')
                             status = input('Enter patient status: ')
@@ -130,6 +129,13 @@ while True:
                     2 -> View Appointments
                     3 -> View patient\'s medical records 
                     '''
+            choice = input(doctors_menu +"\nEnter your choice: ")
+            match choice:
+                case '1':
+                    id = int(input('Enter your ID: '))
+                    first_name = input('Enter first name: ')
+                    print(admin.view_doctors_detail_in_list(id, first_name))
+
         case '3':
             patient_username = input("Enter your login username: ")
             admin.validate_login_username(patient_username)

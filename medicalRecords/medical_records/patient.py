@@ -46,7 +46,7 @@ class Patient:
     @staticmethod
     def validate_first_name(firstname: str) -> str:
         if not firstname.isalpha():
-            raise ValueError("Firstname must be alphabets.")
+            raise ValueError("Firstname must be alphabets only.")
         return firstname.title()
 
     @staticmethod
@@ -58,7 +58,7 @@ class Patient:
     @staticmethod
     def validate_gender(gender):
         if not gender.lower() in [x.value.lower() for x in Gender]:
-            raise ValueError("Gender must Male or Female.")
+            raise ValueError("Gender must be Male or Female.")
         return gender.title()
 
     @staticmethod
@@ -72,4 +72,5 @@ class Patient:
         return len(self.__medical_history)
 
     def __str__(self):
-        return f'{self.patient_id}\n{self.first_name.title()} {self.last_name.title()}\n{self.date_of_birth}\n{self.phone_number}'
+        return (f'Username:{self.username}\nPatient ID:{self.patient_id}\nFull Name:{self.first_name.title()} {self.last_name.title()}'
+                f'Gender:{self.gender}\nDate of Birth:{self.date_of_birth}\nPhone number:{self.phone_number}')
