@@ -4,14 +4,8 @@ from medical_records import medical_record
 
 admin = Admin()
 
-users = '''
-    Welcome to Specialist Hospital
-    Press:-
-    1 -> Admin
-    2 -> Doctor
-    3 -> Patient
-    '''
 while True:
+    print(admin_menu())
     choice_ = input(users + "\n Enter choice: ")
     match choice_:
         case '1':
@@ -142,3 +136,12 @@ while True:
             patient_password = input("Enter your login password: ")
 
             admin.login(patient_username, patient_password)
+
+def admin_menu():
+    return '''
+    Welcome to Specialist Hospital
+    Press:-
+    1 -> Admin
+    2 -> Doctor
+    3 -> Patient
+    '''
